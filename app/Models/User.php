@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Models\Model;
+use App\Services\Auth\Contracts\JwtSubject;
 
-class User extends Model
+class User extends Model implements JwtSubject
 {
     protected $hidden = [
         'password',
@@ -14,6 +15,11 @@ class User extends Model
         'updated_at',
         'created_at',
     ];
+
+    public function getJwtIdentifier()
+    {
+        return $this->id;
+    }
 
     public function getFullNameOrUsername()
     {

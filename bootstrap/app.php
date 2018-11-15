@@ -5,7 +5,7 @@ session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
 
 try {
-    $dotenv = (new Dotenv\Dotenv(__DIR__))->load();
+    $dotenv = (new Dotenv\Dotenv(__DIR__ . '/../'))->load();
 } catch (Dotenv\Exception\InvalidPathException $e) {
     //
 }
@@ -20,7 +20,9 @@ foreach ($container->get('config')->get('providers') as $provider) {
     $container->addServiceProvider($provider);
 }
 
+$strategy = (new League\Route\Strategy\ApplicationStrategy)->setContainer($container);
 $router = $container->get('router');
+$router->setStrategy($strategy);
 
 //Add middlewares
 foreach ($container->get('config')->get('middleware') as $middleware) {

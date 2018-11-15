@@ -49,6 +49,7 @@ class ComposerStaticInit86ae09fdd9d46527883dfdb6b309d7ca
         ),
         'F' => 
         array (
+            'Firebase\\JWT\\' => 13,
             'FastRoute\\' => 10,
         ),
         'D' => 
@@ -111,6 +112,10 @@ class ComposerStaticInit86ae09fdd9d46527883dfdb6b309d7ca
         'League\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/container/src',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
         'FastRoute\\' => 
         array (

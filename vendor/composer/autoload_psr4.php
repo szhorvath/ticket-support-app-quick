@@ -17,6 +17,7 @@ return array(
     'League\\Route\\' => array($vendorDir . '/league/route/src'),
     'League\\Fractal\\' => array($vendorDir . '/league/fractal/src'),
     'League\\Container\\' => array($vendorDir . '/league/container/src'),
+    'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),

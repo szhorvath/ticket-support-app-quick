@@ -2,26 +2,24 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
-use App\Http\Request;
-use App\Http\Response;
+use App\Services\Auth\JwtAuth;
 use App\Controllers\Controller;
+use Psr\Http\Message\ServerRequestInterface;
 
 class UserController extends Controller
 {
-    public function index(Request $request, Response $response)
-    {
-        $users = $this->db->query("SELECT * FROM users")->fetchAll(\PDO::FETCH_CLASS, User::class);
+    protected $auth;
 
-        return $response->withJson($users);
+    public function __construct(JwtAuth $auth)
+    {
+        $this->auth = $auth;
     }
 
-    public function store(Request $request, Response $response)
+    public function index(ServerRequestInterface $request): array
     {
-        var_dump($request->getParams());
-        die;
-        // $users = $this->db->query("SELECT * FROM users")->fetchAll(\PDO::FETCH_CLASS, User::class);
-
-        return $response->withJson($users);
+        return [
+            'success' => true,
+            'data' => $this->auth->user(),
+        ];
     }
 }

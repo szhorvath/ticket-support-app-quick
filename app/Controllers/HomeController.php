@@ -11,27 +11,29 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class HomeController extends Controller
 {
-    public function __construct()
+    protected $db;
+
+    public function __construct(PDO $db)
     {
-        // $this->db = $db;
+        $this->db = $db;
     }
+
     public function index(ServerRequestInterface $request): ResponseInterface
     {
         $response = new Response;
-        $response
-            ->getBody()
-            ->write(file_get_contents(__DIR__ . '/../../public/dist/index.html', true));
+        $response->getBody()
+                 ->write(file_get_contents(__DIR__ . '/../../public/dist/index.html', true));
 
         return $response;
     }
 
     public function json(ServerRequestInterface $request): array
     {
-        // $users = $this->db->query("SELECT * FROM users")->fetchAll(\PDO::FETCH_CLASS, User::class);
+        $users = $this->db->query("SELECT * FROM users")->fetchAll(\PDO::FETCH_CLASS, User::class);
 
         return[
             'success' => true,
-            'data' => 'hello world',
+            'data' =>  $users,
         ];
     }
 }

@@ -2,6 +2,6 @@
 
 return [
     'middleware' => [
-        'App\Middleware\Authenticate',
+        // 'App\Middleware\Authenticate',
     ],
 ];
