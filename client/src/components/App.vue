@@ -10,9 +10,15 @@
   </div>
 </template>
 
+<script>
+export default {
+  el: "#app"
+};
+</script>
+
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -23,7 +29,7 @@
   color: #a42625;
 
   &::before {
-    content: '\f06a';
+    content: "\f06a";
     font-family: FontAwesome;
     /*--adjust as necessary--*/
     padding-right: 0.5em;

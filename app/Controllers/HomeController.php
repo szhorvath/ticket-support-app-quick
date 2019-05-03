@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
 namespace App\Controllers;
 
@@ -22,7 +22,7 @@ class HomeController extends Controller
     {
         $response = new Response;
         $response->getBody()
-                 ->write(file_get_contents(__DIR__ . '/../../public/dist/index.html', true));
+            ->write(file_get_contents(base_path('public/dist/index.html'), true));
 
         return $response;
     }
@@ -31,7 +31,7 @@ class HomeController extends Controller
     {
         $users = $this->db->query("SELECT * FROM users")->fetchAll(\PDO::FETCH_CLASS, User::class);
 
-        return[
+        return [
             'success' => true,
             'data' =>  $users,
         ];

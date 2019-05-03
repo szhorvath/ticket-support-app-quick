@@ -16,6 +16,17 @@ if (!function_exists('str_random')) {
     }
 }
 
+if (!function_exists('base_path')) {
+    function base_path($path = null)
+    {
+        if (!$path) {
+            return __DIR__ . '/../';
+        }
+
+        return __DIR__ . "/../{$path}";
+    }
+}
+
 
 if (!function_exists('env')) {
     function env($key, $default = null)
@@ -26,11 +37,15 @@ if (!function_exists('env')) {
             return $default;
         }
 
+        if ($value === '') return null;
+
         switch (strtolower($value)) {
             case $value === 'true':
                 return true;
             case $value === 'false':
                 return false;
+            case $value === 'null':
+                return null;
             default:
                 return $value;
         }
