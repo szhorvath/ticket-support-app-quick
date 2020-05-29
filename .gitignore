@@ -1,6 +1,7 @@
+src/.env
 .env
 .idea
 .vscode
-vendor
-composer.phar
-composer.lock
+src/vendor
+src/composer.phar
+src/composer.lock
